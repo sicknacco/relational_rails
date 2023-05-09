@@ -15,6 +15,20 @@ RSpec.describe "Pies Index Page", type: :feature do
         expect(page).to have_content("Wholesale?: #{@mince.wholesale}")
         expect(page).to have_content("Bake Time: #{@mince.bake_time}")
       end
+
+      within "#pies_#{@mush.id}" do
+        expect(page).to have_content("Name: #{@mush.name}")
+        expect(page).to have_content("Category: #{@mush.category}")
+        expect(page).to have_content("Wholesale?: #{@mush.wholesale}")
+        expect(page).to have_content("Bake Time: #{@mush.bake_time}")
+      end
+
+      within "#pies_#{@spin.id}" do
+        expect(page).to have_content("Name: #{@spin.name}")
+        expect(page).to have_content("Category: #{@spin.category}")
+        expect(page).to have_content("Wholesale?: #{@spin.wholesale}")
+        expect(page).to have_content("Bake Time: #{@spin.bake_time}")
+      end
     end
   end
 end
