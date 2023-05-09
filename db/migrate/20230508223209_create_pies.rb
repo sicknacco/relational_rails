@@ -4,7 +4,7 @@ class CreatePies < ActiveRecord::Migration[7.0]
       t.string :name
       t.string :type
       t.boolean :wholesale
-      t.integer :stock
+      t.integer :bake_time
       t.references :shop, null: false, foreign_key: true
 
       t.timestamps

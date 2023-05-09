@@ -18,7 +18,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_08_223209) do
     t.string "name"
     t.string "type"
     t.boolean "wholesale"
-    t.integer "stock"
+    t.integer "bake_time"
     t.bigint "shop_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
