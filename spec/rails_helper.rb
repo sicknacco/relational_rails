@@ -1,3 +1,9 @@
+def test_data
+  @dub = Shop.create!(name: "DUB Pies", city: "Brooklyn", order_ahead: false, employee_count: 9)
+  @truck = Shop.create!(name: "Pie Truck", city: "Queens", order_ahead: false, employee_count: 2)
+  @flushing = Shop.create!(name: "Pfizer Building", city: "Brooklyn", order_ahead: true, employee_count: 4)
+end
+
 require 'simplecov'
 SimpleCov.start
 # This file is copied to spec/ when you run 'rails generate rspec:install'
