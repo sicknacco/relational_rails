@@ -7,7 +7,7 @@ RSpec.describe Pie, type: :model do
 
   # describe 'validations' do
   #   it { should validate_presence_of(:name)}
-  #   it { should validate_presence_of(:type)}
+  #   it { should validate_presence_of(:category)}
   #   it { should validate_presence_of(:wholesale)}
   #   it { should validate_presence_of(:bake_time)}
   # end
