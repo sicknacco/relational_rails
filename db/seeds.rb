@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+Shop.destroy_all
+
+@dub = Shop.create!(name: "DUB Pies", city: "Brooklyn", order_ahead: false, employee_count: 9)
+@truck = Shop.create!(name: "Pie Truck", city: "Queens", order_ahead: false, employee_count: 2)
+@flushing = Shop.create!(name: "Pfizer Building", city: "Brooklyn", order_ahead: true, employee_count: 4)
