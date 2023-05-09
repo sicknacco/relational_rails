@@ -4,4 +4,11 @@ RSpec.describe Pie, type: :model do
   describe 'relationships' do
     it { should belong_to :shop }
   end
+
+  describe 'validations' do
+    it { should validate_presence_of(:name)}
+    it { should validate_presence_of(:type)}
+    it { should validate_presence_of(:wholesale)}
+    it { should validate_presence_of(:stock)}
+  end
 end
