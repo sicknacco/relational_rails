@@ -39,21 +39,33 @@ RSpec.describe "Shop's show page", type: :feature do
     describe "when visiting a shop's show page" do
       it 'has a link that leads to that shops pies' do
         visit "/shops/#{@truck.id}"
-
+        
         expect(page).to have_link("#{@truck.name}'s Pies")
-
+        
         click_link("#{@truck.name}'s Pies")
-
+        
         expect(current_path).to eq("/shops/#{@truck.id}/pies")
         
         visit "/shops/#{@truck.id}"
-
+        
         expect(page).to have_link("#{@truck.name}'s Pies")
-
+        
         click_link("#{@truck.name}'s Pies")
-
+        
         expect(current_path).to eq("/shops/#{@truck.id}/pies")
       end
+    end
+  end
+  
+  describe "Shop Update Link" do
+    it "has a link to update a specific shop" do
+      visit "/shops/#{@truck.id}"
+
+      expect(page).to have_link("Update #{@truck.name}")
+
+      click_link("Update #{@truck.name}")
+
+      expect(current_path).to eq("/shops/#{@truck.id}/edit")
     end
   end
 end
