@@ -6,3 +6,5 @@
   <li>Employee Count: <%= @shop.employee_count %></li>
   <li>Pie Varieties Available: <%= @shop.pies_count %></li>
 </ul>
+
+<h4><%= link_to "#{@shop.name}'s Pies", "/shops/#{@shop.id}/pies" %>
