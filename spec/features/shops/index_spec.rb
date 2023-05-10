@@ -27,7 +27,7 @@ RSpec.describe "Shops index page", type: :feature do
 
       expect(page).to have_link("New Shop")
 
-      click_link "New Shop"
+      click_link("New Shop")
 
       expect(current_path).to eq("/shops/new")
     end

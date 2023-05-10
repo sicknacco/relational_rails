@@ -8,6 +8,6 @@ class ShopsController < ApplicationController
   end
 
   def new
-    
+
   end
 end
