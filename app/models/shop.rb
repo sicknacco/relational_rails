@@ -5,4 +5,8 @@ class Shop < ApplicationRecord
   def self.shops_by_timestamp
     Shop.all.order(created_at: :desc)
   end
+
+  def pies_count
+    pies.count
+  end
 end
