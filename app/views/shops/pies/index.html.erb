@@ -1,0 +1,12 @@
+<h1><%= @shop.name %>'s Pies</h1>
+
+<ul>
+  <% @pies.each do |pie| %>
+    <li id="pies_<%= pie.id %>">
+      <p>Name: <%= pie.name %></p>
+      <p>Category: <%= pie.category %></p>
+      <p>Wholesale?: <%= pie.wholesale %></p>
+      <p>Bake Time: <%= pie.bake_time %></p>
+    </li>
+  <% end %>
+</ul>
