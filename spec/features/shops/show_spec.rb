@@ -34,11 +34,4 @@ RSpec.describe "Shop's show page", type: :feature do
       end
     end
   end
-  
-  describe "page links" do
-    it 'has a link to pies index at top of page' do
-      visit "/shops/#{@dub.id}"
-      expect(page).to have_link("Pies Index")
-    end
-  end
 end

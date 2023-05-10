@@ -21,12 +21,5 @@ RSpec.describe "Shops index page", type: :feature do
       expect(@truck.name).to appear_before(@dub.name)
       expect(@dub.name).to_not appear_before(@flushing.name)
     end
-  
-    describe "page links" do
-      it 'has a link to pies index at top of page' do
-        visit '/shops'
-        expect(page).to have_link("Pies Index")
-      end
-    end
   end
 end

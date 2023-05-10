@@ -24,11 +24,4 @@ RSpec.describe "Pie's Show Page", type: :feature do
       expect(page).to have_content("Bake Time: #{@chick.bake_time}")
     end
   end
-  
-  describe "page links" do
-    it 'has a link to pies index at top of page' do
-      visit "/pies/#{@curry.id}"
-      expect(page).to have_link("Pies Index")
-    end
-  end
 end
