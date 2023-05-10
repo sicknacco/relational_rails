@@ -27,6 +27,14 @@ RSpec.describe "New Shops Form", type: :feature do
         expect(current_path).to eq('/shops')
         expect(page).to have_content("New Shop on Block")
       end
+
+      xit "won't let a form be submitted if a field is left empty" do
+        fill_in(:name, with: 'Unfinished')
+        fill_in(:city, with: 'Who knows')
+        check(:order_ahead)
+        click_button("Create Shop")
+
+      end
     end
   end
 end
