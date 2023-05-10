@@ -2,7 +2,6 @@
 <html>
   <head>
     <title>RelationalRails</title>
-    <p><%= link_to "Pies Index", '/shops' %></p>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -12,6 +11,9 @@
   </head>
 
   <body>
+    <nav>
+      <%= link_to "Pies Index", '/shops' %>
+    </nav>  
     <%= yield %>
   </body>
 </html>
