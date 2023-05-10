@@ -25,13 +25,20 @@ RSpec.describe "Shop's show page", type: :feature do
       
       it 'can show the number of pie varieties at this shop' do
         visit "/shops/#{@dub.id}"
-
+        
         expect(page).to have_content("Pie Varieties Available: 3")
-
+        
         visit "/shops/#{@truck.id}"
-
+        
         expect(page).to have_content("Pie Varieties Available: 4")
       end
+    end
+  end
+  
+  describe "page links" do
+    it 'has a link to pies index at top of page' do
+      visit "/shops/#{@dub.id}"
+      expect(page).to have_link("Pies Index")
     end
   end
 end
