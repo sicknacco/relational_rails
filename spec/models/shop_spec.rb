@@ -24,4 +24,13 @@ RSpec.describe Shop, type: :model do
       end
     end
   end
+
+  describe "instance methods" do
+    describe "#pies_count" do
+      it "can count the pie varieties at a shop" do
+        expect(@dub.pies_count).to eq(3)
+        expect(@truck.pies_count).to eq(4)
+      end
+    end
+  end
 end
