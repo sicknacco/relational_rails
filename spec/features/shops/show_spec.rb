@@ -14,6 +14,13 @@ RSpec.describe "Shop's show page", type: :feature do
         expect(page).to have_content(@dub.city)
         expect(page).to have_content(@dub.order_ahead)
         expect(page).to have_content(@dub.employee_count)
+
+        visit "/shops/#{@truck.id}"
+        
+        expect(page).to have_content(@truck.name)
+        expect(page).to have_content(@truck.city)
+        expect(page).to have_content(@truck.order_ahead)
+        expect(page).to have_content(@truck.employee_count)
       end
       
       it 'can show the number of pie varieties at this shop' do
