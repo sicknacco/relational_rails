@@ -18,7 +18,7 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
     
     it "shows each pies attributes" do
       visit "/shops/#{@dub.id}/pies"
-
+      
       within "#pies_#{@mince.id}" do
         expect(page).to have_content(@mince.name)
         expect(page).to have_content(@mince.category)
@@ -34,7 +34,7 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
         expect(page).to have_content(@mush.bake_time)
         expect(page).to_not have_content(@spin.name)
       end
-
+      
       within "#pies_#{@curry.id}" do
         expect(page).to have_content(@curry.name)
         expect(page).to have_content(@curry.category)

@@ -17,7 +17,7 @@ RSpec.describe "Pie's Show Page", type: :feature do
     
     it "shows all the attributes of a different pie" do
       visit "/pies/#{@chick.id}"
-
+      
       expect(page).to have_content("#{@chick.name}'s Show Page!")
       expect(page).to have_content("Category: #{@chick.category}")
       expect(page).to have_content("Wholesale?: #{@chick.wholesale}")
