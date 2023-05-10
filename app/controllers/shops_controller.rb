@@ -8,7 +8,6 @@ class ShopsController < ApplicationController
   end
 
   def new
-
   end
 
   def create
@@ -22,7 +21,17 @@ class ShopsController < ApplicationController
   end
 
   def edit
-    
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    shop = Shop.find(params[:id])
+    if shop.update(shop_params)
+      redirect_to "/shops/#{shop.id}"
+    else
+      redirect_to "/shops/#{shop.id}/edit"
+      flash[:alert] = "Error: You must complete all fields"
+    end
   end
 
   private
