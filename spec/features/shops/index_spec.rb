@@ -21,5 +21,15 @@ RSpec.describe "Shops index page", type: :feature do
       expect(@truck.name).to appear_before(@dub.name)
       expect(@dub.name).to_not appear_before(@flushing.name)
     end
+    
+    it 'has a link to create a new shop that leads to a form' do
+      visit '/shops'
+
+      expect(page).to have_link("New Shop")
+
+      click_link "New Shop"
+
+      expect(current_path).to eq("/shops/new")
+    end
   end
 end
