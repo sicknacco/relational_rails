@@ -21,6 +21,10 @@ class ShopsController < ApplicationController
     end
   end
 
+  def edit
+    
+  end
+
   private
   def shop_params
     params.permit(:id, :name, :city, :employee_count, :order_ahead)

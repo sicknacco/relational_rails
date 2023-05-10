@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post '/shops', to: 'shops#create'
   get '/shops/:id', to: 'shops#show'
   get '/shops/:id/pies', to: 'shops/pies#index'
+  get '/shops/:id/edit', to: 'shops#edit'
 
   get 'pies', to: 'pies#index'
   get 'pies/:id', to: 'pies#show'
