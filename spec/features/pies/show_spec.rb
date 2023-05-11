@@ -23,5 +23,15 @@ RSpec.describe "Pie's Show Page", type: :feature do
       expect(page).to have_content("Wholesale?: #{@chick.wholesale}")
       expect(page).to have_content("Bake Time: #{@chick.bake_time}")
     end
+
+    it 'has a link to update this specific pie' do
+      visit "/pies/#{@sausage.id}"
+
+      expect(page).to have_link("Update Pie")
+
+      click_link("Update Pie")
+
+      expect(current_path).to eq("/pies/#{@sausage.id}/edit")
+    end
   end
 end
