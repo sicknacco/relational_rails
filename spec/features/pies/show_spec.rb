@@ -27,9 +27,9 @@ RSpec.describe "Pie's Show Page", type: :feature do
     it 'has a link to update this specific pie' do
       visit "/pies/#{@sausage.id}"
 
-      expect(page).to have_link("Update Pie")
+      expect(page).to have_link("Update #{@sausage.name}")
 
-      click_link("Update Pie")
+      click_link("Update #{@sausage.name}")
 
       expect(current_path).to eq("/pies/#{@sausage.id}/edit")
     end
