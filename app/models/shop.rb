@@ -1,5 +1,8 @@
 class Shop < ApplicationRecord
-  # validates :name, :city, :order_ahead, :employee_count, presence: true
+  validates :name, :city, presence: true
+  validates :employee_count, presence: true, numericality: true
+  validates :order_ahead, inclusion: [true, false]
+
   has_many :pies
   
   def self.shops_by_timestamp
