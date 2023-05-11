@@ -6,8 +6,8 @@ class PiesController < ApplicationController
   def show
     @pie = Pie.find(params[:id])
   end
-
+  
   def edit
-    
+    @pie = Pie.find(params[:id])
   end
 end
