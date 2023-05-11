@@ -28,12 +28,11 @@ RSpec.describe "New Shops Form", type: :feature do
         expect(page).to have_content("New Shop on Block")
       end
 
-      xit "won't let a form be submitted if a field is left empty" do
-        fill_in(:name, with: 'Unfinished')
-        fill_in(:city, with: 'Who knows')
-        check(:order_ahead)
+      it "won't let a form be submitted if a field is left empty" do
+        
         click_button("Create Shop")
 
+        expect(page).to have_content("Error: You must complete all fields")
       end
     end
   end

@@ -24,9 +24,17 @@ RSpec.describe "Shop's new pie form" do
         fill_in(:bake_time, with: 30)
         check(:wholesale)
         click_button("Create Pie")
-
+        
         expect(current_path).to eq("/shops/#{@dub.id}/pies")
         expect(page).to have_content("Egg and Cheese")
+      end
+      
+      it "won't let a form be submitted if a field is left empty" do
+        visit "/shops/#{@dub.id}/pies/new"
+        
+        click_button("Create Pie")
+
+        expect(page).to have_content("Error: You must complete all fields")
       end
     end
   end

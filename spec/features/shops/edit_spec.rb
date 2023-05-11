@@ -27,6 +27,12 @@ RSpec.describe "Shop Edit Form '/shops/:id/edit'" do
         expect(current_path).to eq("/shops/#{@truck.id}")
         expect(page).to have_content("The Pie Truck")
       end
+
+      it "won't let a form be submitted if a field is left empty" do
+        click_button("Update Shop")
+
+        expect(page).to have_content("Error: You must complete all fields")
+      end
     end
   end
 end

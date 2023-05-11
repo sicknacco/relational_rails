@@ -15,8 +15,8 @@ class ShopsController < ApplicationController
     if shop.save
       redirect_to '/shops'
     else
-      redirect_to '/shops/new'
-      flash[:alert] = "Error: You must complete all fields"
+      flash[:notice] = "Error: You must complete all fields"
+      render :new
     end
   end
 
@@ -30,7 +30,7 @@ class ShopsController < ApplicationController
       redirect_to "/shops/#{shop.id}"
     else
       redirect_to "/shops/#{shop.id}/edit"
-      flash[:alert] = "Error: You must complete all fields"
+      flash[:notice] = "Error: You must complete all fields"
     end
   end
 

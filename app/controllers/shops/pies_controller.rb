@@ -14,8 +14,8 @@ class Shops::PiesController < ApplicationController
     if @pie.save
       redirect_to "/shops/#{@shop.id}/pies"
     else
-      redirect_to "/shops/#{@shop.id}/pies/new"
-      flash[:alert] = "Error: You must complete all fields"
+      flash[:notice] = "Error: You must complete all fields"
+      render :new
     end
   end
 
