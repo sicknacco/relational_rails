@@ -14,7 +14,10 @@
     <nav>
       <%= link_to "Pies Index", '/pies' %>
       <%= link_to "Shops Index", '/shops' %>
-    </nav>  
+    </nav>
+    <% flash.each do |type, message| %>
+      <p><%= message %></p>
+    <% end %>
     <%= yield %>
   </body>
 </html>

@@ -5,10 +5,12 @@ RSpec.describe Pie, type: :model do
     it { should belong_to :shop }
   end
 
-  # describe 'validations' do
-  #   it { should validate_presence_of(:name)}
-  #   it { should validate_presence_of(:category)}
-  #   it { should validate_presence_of(:wholesale)}
-  #   it { should validate_presence_of(:bake_time)}
-  # end
+  describe 'validations' do
+    it { should validate_presence_of(:name)}
+    it { should validate_presence_of(:category)}
+    it { should validate_numericality_of(:bake_time)}
+    it { should allow_value(true).for(:wholesale) }
+    it { should allow_value(false).for(:wholesale) }
+    it { should_not allow_value(nil).for(:wholesale) }
+  end
 end

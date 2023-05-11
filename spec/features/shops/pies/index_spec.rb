@@ -43,5 +43,17 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
         expect(page).to_not have_content(@spin.name)
       end
     end
+    
+    describe "shop pies creation" do
+      it 'has a link that leads to a shop pie creation page' do
+        visit "/shops/#{@dub.id}/pies"
+        
+        expect(page).to have_link("Create Pie")
+
+        click_link("Create Pie")
+
+        expect(current_path).to eq("/shops/#{@dub.id}/pies/new")
+      end
+    end
   end
 end

@@ -9,12 +9,14 @@ RSpec.describe Shop, type: :model do
     it { should have_many :pies }
   end
 
-  # describe 'validations' do
-  #   it { should validate_presence_of(:name)}
-  #   it { should validate_presence_of(:city)}
-  #   it { should validate_presence_of(:order_ahead)}
-  #   it { should validate_presence_of(:employee_count)}
-  # end
+  describe 'validations' do
+    it { should validate_presence_of(:name)}
+    it { should validate_presence_of(:city)}
+    it { should validate_numericality_of(:employee_count)}
+    it { should allow_value(true).for(:order_ahead) }
+    it { should allow_value(false).for(:order_ahead) }
+    it { should_not allow_value(nil).for(:order_ahead) }
+  end
 
   describe "class methods" do
     describe "#shops_by_timestamp" do
