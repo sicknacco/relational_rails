@@ -1,16 +1,7 @@
-<%= form_with url: '/shops', method: :post, local: true do |form| %>
-  <%= form.label :name %>
-  <%= form.text_field :name %>
-  <br>
-  <%= form.label :city %>
-  <%= form.text_field :city %>
-  <br>
-  <%= form.label :employee_count %>
-  <%= form.number_field :employee_count %>
-  <br>
-  <p>Order Ahead Available?</p>
-  <%= form.label :order_ahead %>
-  <%= form.check_box :order_ahead %>
-  <br>
-  <%= form.submit "Create Shop" %>
-<% end %>
+<h1>New Shop</h1>
+
+<%= render partial: 'new_edit', locals: {
+  path: '/shops',
+  method: :post,
+  button_text: "Create Shop"
+} %>
