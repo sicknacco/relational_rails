@@ -21,7 +21,7 @@ RSpec.describe Pie, type: :model do
   describe 'Class methods' do
     describe "#wholesale_pies" do
       it 'returns pies with a wholesale value of true' do
-        expect(Pie.wholesale_pies).to eq([@m_c, @cherry, @steak])
+        expect(Pie.wholesale_pies).to eq([@mince, @mush, @spin, @m_c, @cherry, @steak])
       end
     end
   end

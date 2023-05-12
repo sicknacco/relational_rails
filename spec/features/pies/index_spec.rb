@@ -48,6 +48,10 @@ RSpec.describe "Pies Index Page", type: :feature do
       expect(page).to have_content("Category: #{@steak.category}")
       expect(page).to have_content("Wholesale?: #{@steak.wholesale}")
       expect(page).to have_content("Bake Time: #{@steak.bake_time}")
+
+      expect(page).to_not have_content(@curry.name)
+      expect(page).to_not have_content(@sausage.name)
+      expect(page).to_not have_content(@chick.name)
     end
   end
 end
