@@ -4,4 +4,8 @@ class Pie < ApplicationRecord
   validates :wholesale, inclusion: [true, false]
   
   belongs_to :shop
+
+  def self.wholesale_pies
+    self.where("wholesale = true")
+  end
 end
