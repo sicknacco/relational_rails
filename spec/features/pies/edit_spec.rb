@@ -16,6 +16,7 @@ RSpec.describe "Pies Edit Form", type: :feature do
       click_button("Update Pie")
 
       expect(current_path).to eq("/pies/#{@steak.id}")
+      
       expect(page).to have_content('Steak and Ale UPDATE')
       expect(page).to have_content('Meat UPDATE')
     end
