@@ -1,6 +1,6 @@
 class PiesController < ApplicationController
   def index
-    @pies = Pie.all
+    @pies = Pie.wholesale_pies
   end
 
   def show

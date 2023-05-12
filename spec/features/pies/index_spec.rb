@@ -30,5 +30,28 @@ RSpec.describe "Pies Index Page", type: :feature do
         expect(page).to have_content("Bake Time: #{@spin.bake_time}")
       end
     end
+    
+    it 'only shows pies where wholesale is true' do
+      visit '/pies'
+      
+      expect(page).to have_content("Name: #{@m_c.name}")
+      expect(page).to have_content("Category: #{@m_c.category}")
+      expect(page).to have_content("Wholesale?: #{@m_c.wholesale}")
+      expect(page).to have_content("Bake Time: #{@m_c.bake_time}")
+
+      expect(page).to have_content("Name: #{@cherry.name}")
+      expect(page).to have_content("Category: #{@cherry.category}")
+      expect(page).to have_content("Wholesale?: #{@cherry.wholesale}")
+      expect(page).to have_content("Bake Time: #{@cherry.bake_time}")
+
+      expect(page).to have_content("Name: #{@steak.name}")
+      expect(page).to have_content("Category: #{@steak.category}")
+      expect(page).to have_content("Wholesale?: #{@steak.wholesale}")
+      expect(page).to have_content("Bake Time: #{@steak.bake_time}")
+
+      expect(page).to_not have_content(@curry.name)
+      expect(page).to_not have_content(@sausage.name)
+      expect(page).to_not have_content(@chick.name)
+    end
   end
 end
