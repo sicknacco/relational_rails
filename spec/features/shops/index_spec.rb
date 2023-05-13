@@ -24,12 +24,24 @@ RSpec.describe "Shops index page", type: :feature do
     
     it 'has a link to create a new shop that leads to a form' do
       visit '/shops'
-
+      
       expect(page).to have_link("New Shop")
-
+      
       click_link("New Shop")
-
+      
       expect(current_path).to eq("/shops/new")
+    end
+    
+    it 'has a link to update each shop record on index page' do
+      visit '/shops'
+
+      expect(page).to have_button("Update #{@dub.name}")
+      expect(page).to have_button("Update #{@truck.name}")
+      expect(page).to have_button("Update #{@flushing.name}")
+
+      click_button("Update #{@dub.name}")
+
+      expect(current_path).to eq("/shops/#{@dub.id}/edit")
     end
   end
 end
