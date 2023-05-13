@@ -2,7 +2,7 @@
 
 <ul>
   <% @shops.each do |shop| %>
-  <li><%= shop.name %></li>
+  <li><%= shop.name %> <%= link_to "Update #{shop.name}", "/shops/#{shop.id}/edit" %></li>
   <% end %>
 </ul>
 

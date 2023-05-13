@@ -11,7 +11,6 @@ def test_data
   @spin = @truck.pies.create!(name: "Spinach Roll", category: "Veggie", wholesale: true, bake_time: 20)
   @chick = @truck.pies.create!(name: "Chicken Veg", category: "Meat", wholesale: false, bake_time: 40)
   @apple = @truck.pies.create!(name: "Apple Pie", category: "Fruit", wholesale: false, bake_time: 60)
-  
 
   @m_c = @flushing.pies.create!(name: "Mince and Cheese", category: "Meat", wholesale: true, bake_time: 20)
   @cherry = @flushing.pies.create!(name: "Cherry Pie", category: "Fruit", wholesale: true, bake_time: 60)
