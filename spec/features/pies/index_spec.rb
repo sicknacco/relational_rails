@@ -62,9 +62,18 @@ RSpec.describe "Pies Index Page", type: :feature do
       expect(page).to have_link("Edit #{@m_c.name}")
       expect(page).to have_link("Edit #{@cherry.name}")
       expect(page).to have_link("Edit #{@steak.name}")
+      
       click_link("Edit #{@m_c.name}")
-
       expect(current_path).to eq("/pies/#{@m_c.id}/edit")
+      
+      visit '/pies'
+      
+      click_link("Edit #{@cherry.name}")
+      expect(current_path).to eq("/pies/#{@cherry.id}/edit")
+      
+      visit '/pies'
+      click_link("Edit #{@steak.name}")
+      expect(current_path).to eq("/pies/#{@steak.id}/edit")
     end
   end
 end
