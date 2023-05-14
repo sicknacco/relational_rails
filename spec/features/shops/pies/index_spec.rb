@@ -57,7 +57,7 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
     end
     
     describe "sorting shop pie records" do
-      xit 'has a link to sort pie records in alphabetical order' do
+      it 'has a link to sort pie records in alphabetical order' do
         visit "/shops/#{@truck.id}/pies"
 
         expect(page).to have_link("Sort Pies Alphabetically")
