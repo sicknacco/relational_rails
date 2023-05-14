@@ -38,20 +38,42 @@ RSpec.describe "Pies Index Page", type: :feature do
       expect(page).to have_content("Category: #{@m_c.category}")
       expect(page).to have_content("Wholesale?: #{@m_c.wholesale}")
       expect(page).to have_content("Bake Time: #{@m_c.bake_time}")
-
+      
       expect(page).to have_content("Name: #{@cherry.name}")
       expect(page).to have_content("Category: #{@cherry.category}")
       expect(page).to have_content("Wholesale?: #{@cherry.wholesale}")
       expect(page).to have_content("Bake Time: #{@cherry.bake_time}")
-
+      
       expect(page).to have_content("Name: #{@steak.name}")
       expect(page).to have_content("Category: #{@steak.category}")
       expect(page).to have_content("Wholesale?: #{@steak.wholesale}")
       expect(page).to have_content("Bake Time: #{@steak.bake_time}")
-
+      
       expect(page).to_not have_content(@curry.name)
       expect(page).to_not have_content(@sausage.name)
       expect(page).to_not have_content(@chick.name)
+    end
+  end
+  
+  describe "There is a link next to each record to update that record" do
+    it 'can click a link that leads to the form to update a pie' do
+      visit '/pies'
+      
+      expect(page).to have_link("Edit #{@m_c.name}")
+      expect(page).to have_link("Edit #{@cherry.name}")
+      expect(page).to have_link("Edit #{@steak.name}")
+      
+      click_link("Edit #{@m_c.name}")
+      expect(current_path).to eq("/pies/#{@m_c.id}/edit")
+      
+      visit '/pies'
+      
+      click_link("Edit #{@cherry.name}")
+      expect(current_path).to eq("/pies/#{@cherry.id}/edit")
+      
+      visit '/pies'
+      click_link("Edit #{@steak.name}")
+      expect(current_path).to eq("/pies/#{@steak.id}/edit")
     end
   end
 end
