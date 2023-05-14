@@ -36,15 +36,15 @@ RSpec.describe "Pie's Show Page", type: :feature do
   end
 
   describe "Pie Delete Link" do
-    it "has a link to delete a shop and all of it's pies" do
-      visit "/pies/#{@mince.id}"
+    it "has a link to delete a pie" do
+      visit "/pies/#{@sausage.id}"
       
-      expect(page).to have_link("Delete #{@mince.name}")
-
-      click_link("Delete #{@mince.name}")
-
+      expect(page).to have_link("Delete #{@sausage.name}")
+      click_link("Delete #{@sausage.name}")
+      
       expect(current_path).to eq('/pies')
-      expect(page).to_not have_content("#{@mince.name}")
+
+      expect(page).to_not have_content("#{@sausage.name}")
 
       visit "/pies/#{@steak.id}"
       

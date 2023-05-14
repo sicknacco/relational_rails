@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/pies/:id', to: 'pies#show'
   get '/pies/:id/edit', to: 'pies#edit'
   patch '/pies/:id', to: 'pies#update'
+  delete '/pies/:id', to: 'pies#delete'
 end
