@@ -79,6 +79,15 @@ RSpec.describe "Shop's show page", type: :feature do
 
       expect(current_path).to eq('/shops')
       expect(page).to_not have_content("#{@truck.name}")
+
+      visit "/shops/#{@dub.id}"
+      
+      expect(page).to have_link("Delete #{@dub.name}")
+
+      click_link("Delete #{@dub.name}")
+
+      expect(current_path).to eq('/shops')
+      expect(page).to_not have_content("#{@dub.name}")
     end
   end
 end
