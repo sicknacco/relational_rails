@@ -71,5 +71,26 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
         expect(@spinach.name).to_not appear_before(@chick.name)
       end
     end
+
+    describe "There is a link next to each record to update that record" do
+      it 'can click a link that leads to the form to update a pie' do
+        visit "/shops/#{@dub.id}/pies"
+        
+        expect(page).to have_link("Edit #{@mince.name}")
+        expect(page).to have_link("Edit #{@mush.name}")
+        expect(page).to have_link("Edit #{@curry.name}")
+        
+        click_link("Edit #{@mince.name}")
+        expect(current_path).to eq("/pies/#{@mince.id}/edit")
+        
+        visit "/shops/#{@dub.id}/pies"
+        click_link("Edit #{@mush.name}")
+        expect(current_path).to eq("/pies/#{@mush.id}/edit")
+        
+        visit "/shops/#{@dub.id}/pies"
+        click_link("Edit #{@curry.name}")
+        expect(current_path).to eq("/pies/#{@curry.id}/edit")
+      end
+    end
   end
 end
