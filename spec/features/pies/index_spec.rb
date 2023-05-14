@@ -76,4 +76,26 @@ RSpec.describe "Pies Index Page", type: :feature do
       expect(current_path).to eq("/pies/#{@steak.id}/edit")
     end
   end
+
+  describe "Pie Delete Link" do
+    it "has a link to delete a pie" do
+      visit "/pies"
+
+      expect(page).to have_link("Delete #{@cherry.name}")
+      click_link("Delete #{@cherry.name}")
+      
+      expect(current_path).to eq('/pies')
+
+      expect(page).to_not have_content("#{@cherry.name}")
+
+      visit "/pies"
+      
+      expect(page).to have_link("Delete #{@steak.name}")
+
+      click_link("Delete #{@steak.name}")
+
+      expect(current_path).to eq('/pies')
+      expect(page).to_not have_content("#{@steak.name}")
+    end
+  end
 end
