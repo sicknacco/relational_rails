@@ -7,3 +7,4 @@
   <li>Bake Time: <%= @pie.bake_time %></li>
 </ul>
 
+<h4><%= link_to "Delete #{@pie.name}", "/pies/#{@pie.id}", method: :delete %></h4>

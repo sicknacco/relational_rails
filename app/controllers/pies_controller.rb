@@ -16,6 +16,12 @@ class PiesController < ApplicationController
     @pie.update(pie_params)
     redirect_to "/pies/#{@pie.id}"
   end
+  
+  def delete
+    pie = Pie.find(params[:id])
+    Pie.destroy(params[:id])
+    redirect_to '/pies'
+  end
 
   private
   def pie_params

@@ -3,7 +3,7 @@ class Shop < ApplicationRecord
   validates :employee_count, presence: true, numericality: true
   validates :order_ahead, inclusion: [true, false]
 
-  has_many :pies
+  has_many :pies, dependent: :destroy
   
   def self.shops_by_timestamp
     Shop.all.order(created_at: :desc)

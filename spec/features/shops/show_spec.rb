@@ -60,12 +60,34 @@ RSpec.describe "Shop's show page", type: :feature do
   describe "Shop Update Link" do
     it "has a link to update a specific shop" do
       visit "/shops/#{@truck.id}"
-
+      
       expect(page).to have_link("Update #{@truck.name}")
-
+      
       click_link("Update #{@truck.name}")
-
+      
       expect(current_path).to eq("/shops/#{@truck.id}/edit")
+    end
+  end
+  
+  describe "Shop Delete Link" do
+    it "has a link to delete a shop and all of it's pies" do
+      visit "/shops/#{@truck.id}"
+      
+      expect(page).to have_link("Delete #{@truck.name}")
+
+      click_link("Delete #{@truck.name}")
+
+      expect(current_path).to eq('/shops')
+      expect(page).to_not have_content("#{@truck.name}")
+
+      visit "/shops/#{@dub.id}"
+      
+      expect(page).to have_link("Delete #{@dub.name}")
+
+      click_link("Delete #{@dub.name}")
+
+      expect(current_path).to eq('/shops')
+      expect(page).to_not have_content("#{@dub.name}")
     end
   end
 end
