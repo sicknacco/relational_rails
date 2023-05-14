@@ -16,7 +16,7 @@ RSpec.describe "Shops index page", type: :feature do
     
     it 'lists shops in order from most recently created' do
       visit '/shops'
-      
+
       expect(@flushing.name).to appear_before(@truck.name)
       expect(@truck.name).to appear_before(@dub.name)
       expect(@dub.name).to_not appear_before(@flushing.name)
