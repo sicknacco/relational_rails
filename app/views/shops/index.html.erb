@@ -2,9 +2,9 @@
 
 <ul>
   <% @shops.each do |shop| %>
-  <li><%= shop.name %> <%= link_to "Update #{shop.name}", "/shops/#{shop.id}/edit" %></li>
+  <li><%= shop.name %> <%= link_to "Update #{shop.name}", "/shops/#{shop.id}/edit" %>, <%= link_to "Delete #{shop.name}", "/shops/#{shop.id}", method: :delete %></li>
     <%= "Created at: #{shop.created_at}" %>
   <% end %>
 </ul>
 
-<%= link_to "New Shop", "/shops/new" %>
+<h4><%= link_to "New Shop", "/shops/new" %></h4>

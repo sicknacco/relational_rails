@@ -43,5 +43,22 @@ RSpec.describe "Shops index page", type: :feature do
       
       expect(current_path).to eq("/shops/#{@dub.id}/edit")
     end
+    
+    it 'has a link to delete a shop' do
+      visit '/shops'
+      
+      expect(page).to have_link("Delete #{@dub.name}")
+      expect(page).to have_link("Delete #{@truck.name}")
+      expect(page).to have_link("Delete #{@flushing.name}")
+      
+      click_link("Delete #{@dub.name}")
+      
+      expect(current_path).to eq('/shops')
+      expect(page).to_not have_content(@dub.name)
+      
+      visit '/shops'
+      click_link("Delete #{@truck.name}")
+      expect(page).to_not have_content(@truck.name)
+    end
   end
 end
