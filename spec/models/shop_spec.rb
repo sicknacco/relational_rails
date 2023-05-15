@@ -21,7 +21,9 @@ RSpec.describe Shop, type: :model do
   describe "class methods" do
     describe "#shops_by_timestamp" do
       it "orders shops by most recently created first" do
-        
+        @dub.update(created_at:50.days.ago)
+        @truck.update(created_at:40.days.ago)
+        @flushing.update(created_at:30.days.ago)
         expect(Shop.shops_by_timestamp).to eq([@flushing, @truck, @dub])
       end
     end
