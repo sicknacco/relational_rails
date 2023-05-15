@@ -34,5 +34,12 @@ RSpec.describe Shop, type: :model do
         expect(@truck.pies_count).to eq(4)
       end
     end
+    describe "#alpha_names" do
+      it "can sort all pies at a shop in alpha order" do
+        shop = Shop.find_by(id: "#{@truck.id}")
+        expect(shop.alpha_names("name")).to eq([@apple, @chick, @sausage, @spin])
+        expect(shop.alpha_names("whatever")).to eq([@sausage, @spin, @chick, @apple])
+      end
+    end
   end
 end

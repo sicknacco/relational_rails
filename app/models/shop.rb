@@ -12,4 +12,12 @@ class Shop < ApplicationRecord
   def pies_count
     pies.count
   end
+  
+  def alpha_names(sort)
+    if sort == "name"
+      self.pies.order(:name)
+    else
+      self.pies
+    end
+  end
 end

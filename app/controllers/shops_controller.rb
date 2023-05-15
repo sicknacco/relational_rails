@@ -36,7 +36,7 @@ class ShopsController < ApplicationController
 
   def delete
     shop = Shop.find(params[:id])
-    Shop.destroy(params[:id])
+    shop.destroy
     redirect_to '/shops'
   end
 

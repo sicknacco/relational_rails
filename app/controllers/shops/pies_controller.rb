@@ -1,7 +1,7 @@
 class Shops::PiesController < ApplicationController
   def index
     @shop = Shop.find(params[:id])
-    @pies = @shop.pies
+    @pies = @shop.alpha_names(params['sort'])
   end
 
   def new

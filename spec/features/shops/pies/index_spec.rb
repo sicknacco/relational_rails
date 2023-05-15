@@ -57,9 +57,9 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
     end
     
     describe "sorting shop pie records" do
-      xit 'has a link to sort pie records in alphabetical order' do
+      it 'has a link to sort pie records in alphabetical order' do
         visit "/shops/#{@truck.id}/pies"
-
+## add original order
         expect(page).to have_link("Sort Pies Alphabetically")
 
         click_link("Sort Pies Alphabetically")
@@ -67,8 +67,8 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
         expect(current_path).to eq("/shops/#{@truck.id}/pies")
         expect(@apple.name).to appear_before(@chick.name)
         expect(@chick.name).to appear_before(@sausage.name)
-        expect(@sausage.name).to appear_before(@spinach.name)
-        expect(@spinach.name).to_not appear_before(@chick.name)
+        expect(@sausage.name).to appear_before(@spin.name)
+        expect(@spin.name).to_not appear_before(@chick.name)
       end
     end
 

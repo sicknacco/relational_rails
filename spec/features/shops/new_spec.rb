@@ -23,7 +23,6 @@ RSpec.describe "New Shops Form", type: :feature do
         fill_in(:employee_count, with: 12)
         check(:order_ahead)
         click_button("Create Shop")
-
         expect(current_path).to eq('/shops')
         expect(page).to have_content("New Shop on Block")
       end
