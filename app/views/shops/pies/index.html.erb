@@ -11,8 +11,8 @@
   <% end %>
 </ul>
 <%= form_with url: "/shops/#{@shop.id}/pies", method: :get, local: true do |form| %>
-  <%= form.label "Pies with a bake time over:" %><br>
-  <%= form.number_field :bake_time_threshold %><br>
+  <%= form.label :bake_time, "Pies with a bake time over:" %><br>
+  <%= form.number_field :bake_time %><br>
   <%= form.submit "Filter Pies" %>
 <% end %> 
 

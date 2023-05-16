@@ -36,10 +36,18 @@ RSpec.describe Shop, type: :model do
         expect(@truck.pies_count).to eq(4)
       end
     end
+
     describe "#alpha_names" do
       it "can sort all pies at a shop in alpha order" do
         expect(@truck.alpha_names("name")).to eq([@apple, @chick, @sausage, @spin])
         expect(@truck.alpha_names("whatever")).to eq([@sausage, @spin, @chick, @apple])
+      end
+    end
+    
+    describe "#bake_time_threshold" do
+      it 'can find all pies with a bake time over user inputed amount' do
+        expect(@dub.bake_time_threshold(25)).to eq([@mince])
+        expect(@truck.bake_time_threshold(30)).to eq([@chick, @apple])
       end
     end
   end
