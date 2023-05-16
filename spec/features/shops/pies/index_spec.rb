@@ -76,10 +76,10 @@ RSpec.describe "Shop Pie's index Page", type: :feature do
       it 'can display records over a user decided threshold' do
         visit "/shops/#{@truck.id}/pies"
 
-        expect(page).to have_field('bake_time')
+        expect(page).to have_field('bake_time_threshold')
         expect(page).to have_content("Pies with a bake time over:")
 
-        fill_in(:bake_time, with: 45)
+        fill_in(:bake_time_threshold, with: 45)
         click_button("Filter Pies")
 
         expect(current_path).to eq("/shops/#{@truck.id}/pies")
