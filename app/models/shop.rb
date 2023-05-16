@@ -20,4 +20,8 @@ class Shop < ApplicationRecord
       self.pies
     end
   end
+
+  def bake_time_threshold(time)
+    pies.where("bake_time > #{time}")
+  end
 end

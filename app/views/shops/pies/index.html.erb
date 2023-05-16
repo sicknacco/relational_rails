@@ -10,6 +10,11 @@
     </li>
   <% end %>
 </ul>
+<%= form_with url: "/shops/#{@shop.id}/pies", method: :get, local: true do |form| %>
+  <%= form.label :bake_time, "Pies with a bake time over:" %><br>
+  <%= form.number_field :bake_time %><br>
+  <%= form.submit "Filter Pies" %>
+<% end %> 
 
 <p><%= link_to "Create Pie", "/shops/#{@shop.id}/pies/new" %><p>
 <p><%= link_to "Sort Pies Alphabetically", "/shops/#{@shop.id}/pies?sort=name", method: :get %></p>
