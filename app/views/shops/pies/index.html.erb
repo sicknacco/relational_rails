@@ -3,7 +3,7 @@
 <ul>
   <% @pies.each do |pie| %>
     <li id="pies_<%= pie.id %>">
-      <p>Name: <%= pie.name %> <%= link_to "Edit #{pie.name}", "/pies/#{pie.id}/edit" %> <%= link_to "Delete #{pie.name}", "/pies/#{pie.id}", method: :delete %></p>
+      <p>Name: <%= pie.name %> <%= link_to "Edit #{pie.name}", "/pies/#{pie.id}/edit" %> <%= button_to "Delete #{pie.name}", "/pies/#{pie.id}", method: :delete %></p>
       <p>Category: <%= pie.category %></p>
       <p>Wholesale?: <%= pie.wholesale %></p>
       <p>Bake Time: <%= pie.bake_time %></p>

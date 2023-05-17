@@ -73,18 +73,18 @@ RSpec.describe "Shop's show page", type: :feature do
     it "has a link to delete a shop and all of it's pies" do
       visit "/shops/#{@truck.id}"
       
-      expect(page).to have_link("Delete #{@truck.name}")
+      expect(page).to have_button("Delete #{@truck.name}")
 
-      click_link("Delete #{@truck.name}")
+      click_button("Delete #{@truck.name}")
 
       expect(current_path).to eq('/shops')
       expect(page).to_not have_content("#{@truck.name}")
 
       visit "/shops/#{@dub.id}"
       
-      expect(page).to have_link("Delete #{@dub.name}")
+      expect(page).to have_button("Delete #{@dub.name}")
 
-      click_link("Delete #{@dub.name}")
+      click_button("Delete #{@dub.name}")
 
       expect(current_path).to eq('/shops')
       expect(page).to_not have_content("#{@dub.name}")

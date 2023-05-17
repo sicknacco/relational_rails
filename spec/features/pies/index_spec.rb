@@ -78,11 +78,11 @@ RSpec.describe "Pies Index Page", type: :feature do
   end
 
   describe "Pie Delete Link" do
-    it "has a link to delete a pie" do
+    it "has a button to delete a pie" do
       visit "/pies"
 
-      expect(page).to have_link("Delete #{@cherry.name}")
-      click_link("Delete #{@cherry.name}")
+      expect(page).to have_button("Delete #{@cherry.name}")
+      click_button("Delete #{@cherry.name}")
       
       expect(current_path).to eq('/pies')
 
@@ -90,9 +90,9 @@ RSpec.describe "Pies Index Page", type: :feature do
 
       visit "/pies"
       
-      expect(page).to have_link("Delete #{@steak.name}")
+      expect(page).to have_button("Delete #{@steak.name}")
 
-      click_link("Delete #{@steak.name}")
+      click_button("Delete #{@steak.name}")
 
       expect(current_path).to eq('/pies')
       expect(page).to_not have_content("#{@steak.name}")
